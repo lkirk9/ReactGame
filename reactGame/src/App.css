@@ -1,0 +1,14 @@
+.customCardClass {
+  --bs-card-inner-border-radius: 0 !important;
+  height: 50vh !important;
+}
+
+.movieCards {
+  height: 100vh !important;
+  display: flex;
+  flex-direction: column;
+}
+
+img{
+  object-fit: cover;
+}
