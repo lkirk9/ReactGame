@@ -12,3 +12,9 @@
 img{
   object-fit: cover;
 }
+
+.rating-text{
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}

@@ -38,29 +38,40 @@ const Game = () => {
 
   return (
     <div className="movieCards ">
+      
+      {/* top movie card */}
       <Card className='bg-dark text-white border-0 rounded-0 customCardClass'>
         <Card.Img src={movie1.poster} alt={movie1.title} className="h-100" />
         <Card.ImgOverlay className="rounded-0 border-0 d-flex justify-content-center align-items-center m-auto customCardClass p-0">
           <Card className='bg-dark text-white d-flex justify-content-center align-items-center m-auto bg-opacity-75 w-100 h-100 rounded-0 border-0 '>
-            <Card.Title>{movie1.title} <br></br> has a rating of </Card.Title>
+            <Card.Title className="card-title fs-2">{movie1.title}</Card.Title>
             <Card.Text>
-             {movie1.rating}
+             has an average user rating of {movie1.rating}
             </Card.Text>
           </Card>
         </Card.ImgOverlay>
       </Card>
+
+      {/* bottom movie card */}
       <Card className='bg-dark text-white border-0 rounded-0 customCardClass'>
         <Card.Img src={movie2.poster} alt={movie2.title} className="h-100" />
         <Card.ImgOverlay className="rounded-0 border-0 d-flex justify-content-center align-items-center m-auto customCardClass p-0">
           <Card className='bg-dark text-white d-flex justify-content-center align-items-center m-auto bg-opacity-75 w-100 h-100 rounded-0 border-0 '>
-            <Card.Title>{movie2.title} has a </Card.Title>
-            <Button variant="success" onClick={() => {handleGuess('higher')}}>Higher</Button>
-            <br></br>
-            <Button variant="danger" onClick={() => {handleGuess('lower')}}>Lower</Button>
+            <Card.Title className='card-title d-flex fs-2'>{movie2.title} </Card.Title>
             <Card.Text>
-              Rating than <br></br> {movie1.title} 
-              <br></br>
-              <p>Score: {score}</p>
+              <p className="d-flex m-0">has a </p>
+            </Card.Text>
+            <Button className="d-flex m-0" variant="success" onClick={() => {handleGuess('higher')}}>Higher</Button>
+            <br></br>
+            <Button className="d-flex mb-2" variant="danger" onClick={() => {handleGuess('lower')}}>Lower</Button>
+            <Card.Text className="rating-text d-flex">
+              Rating than
+            </Card.Text>
+            <Card.Text>
+            {movie1.title} 
+            </Card.Text>
+            <Card.Text>
+            <p className='mt-5 fs-3'>Score: {score}</p>
             </Card.Text>
           </Card>
         </Card.ImgOverlay>
