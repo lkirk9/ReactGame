@@ -17,12 +17,16 @@ app.use((req, res, next) => {
 app.get('/movies', async (req, res) => {
   const page1 = Math.floor(Math.random() * 50) + 1;
   const page2 = Math.floor(Math.random() * 50) + 1;
+  const page3 = Math.floor(Math.random() * 50) + 1;
   const moviesResponse1 = await axios(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&sort_by=popularity.desc&include_adult=false&vote_count.gte=500&page=${page1}`);
   const moviesResponse2 = await axios(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&sort_by=popularity.desc&include_adult=false&vote_count.gte=500&page=${page2}`);
+  const moviesResponse3 = await axios(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&sort_by=popularity.desc&include_adult=false&vote_count.gte=500&page=${page3}`);
   const moviesData1 = await moviesResponse1.data;
   const moviesData2 = await moviesResponse2.data;
+  const moviesData3 = await moviesResponse3.data;
   const movie1 = moviesData1.results[Math.floor(Math.random() * moviesData1.results.length)];
   const movie2 = moviesData2.results[Math.floor(Math.random() * moviesData2.results.length)];
+  const movie3 = moviesData3.results[Math.floor(Math.random() * moviesData3.results.length)];
   const movie1Data = {
     title: movie1.title,
     rating: movie1.vote_average,
@@ -32,6 +36,11 @@ app.get('/movies', async (req, res) => {
     title: movie2.title,
     rating: movie2.vote_average,
     poster: `https://image.tmdb.org/t/p/w500/${movie2.poster_path}`
+  };
+  const movie3Data = {
+    title: movie3.title,
+    rating: movie3.vote_average,
+    poster: `https://image.tmdb.org/t/p/w500/${movie3.poster_path}`
   };
   const movies = {
     movie1: movie1Data,
